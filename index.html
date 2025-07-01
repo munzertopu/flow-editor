@@ -7,13 +7,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div id="app" class="w-full h-full bg-white shadow-lg rounded-lg">
-      <!-- Canvas and UI will go here -->
-      <div
-        id="canvas"
-        class="relative w-full h-screen bg-gray-200 overflow-hidden"
-      ></div>
+  <body class="grid-bg text-gray-300">
+    <!-- Workspace -->
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <div class="w-64 bg-gray-800 p-4 overflow-y-auto">
+        <h2 class="text-lg font-bold mb-4">Nodes</h2>
+        <ul>
+          <li class="mb-2">
+            <button
+              class="w-full text-left p-2 bg-gray-700 hover:bg-gray-600 rounded"
+              onclick="addNode('Switch')"
+            >
+              Switch
+            </button>
+          </li>
+          <li class="mb-2">
+            <button
+              class="w-full text-left p-2 bg-gray-700 hover:bg-gray-600 rounded"
+              onclick="addNode('Filter')"
+            >
+              Filter
+            </button>
+          </li>
+          <li class="mb-2">
+            <button
+              class="w-full text-left p-2 bg-gray-700 hover:bg-gray-600 rounded"
+              onclick="addNode('AI Agent')"
+            >
+              AI Agent
+            </button>
+          </li>
+        </ul>
+      </div>
+      <!-- Canvas -->
+      <div class="flex-1 relative" id="canvas">
+        <div id="nodes"></div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      id="modal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center"
+    >
+      <div class="bg-gray-800 p-6 rounded-lg w-96">
+        <h3 id="modal-title" class="text-lg font-bold mb-4"></h3>
+        <p id="modal-content" class="mb-4">Configure your node here.</p>
+        <button
+          class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded"
+          onclick="closeModal()"
+        >
+          Close
+        </button>
+      </div>
     </div>
     <script src="script.js" defer></script>
   </body>
