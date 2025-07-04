@@ -1,5 +1,5 @@
 // @ts-nocheck
-let nodes = [];
+
 let activeNode = null;
 const canvas = document.getElementById("canvas");
 
